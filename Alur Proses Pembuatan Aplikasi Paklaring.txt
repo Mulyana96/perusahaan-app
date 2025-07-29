@@ -1,0 +1,61 @@
+﻿    1. Persiapan Aplikasi
+        ◦ Inisialisasi Library
+            ▪ Import pustaka yang diperlukan:
+                • Streamlit: Untuk membuat antarmuka pengguna berbasis web.
+                • FPDF: Untuk membuat dan mengelola file PDF.
+                • os: Untuk mengelola file (terutama untuk menghapus file setelah diunduh).
+                  
+    2. Membangun Struktur PDF (PDF Class)
+        ◦ Kelas PDF: Membuat kelas turunan dari FPDF untuk menyusun PDF yang akan digunakan untuk surat Paklaring.
+            ▪ Header: Menambahkan logo perusahaan dan nama perusahaan di bagian atas setiap halaman PDF.
+            ▪ Footer: Menambahkan nomor halaman di bagian bawah PDF.
+              
+    3. Membuat Form Input Data di Streamlit
+        ◦ Tampilkan antarmuka web dengan judul dan instruksi pengguna untuk mengisi form.
+        ◦ Buat form input data untuk:
+            ▪ Nama Karyawan: Input teks untuk nama karyawan.
+            ▪ Bagian Kerja: Input teks untuk bagian pekerjaan.
+            ▪ Tanggal Mulai Bekerja: Input tanggal untuk tanggal mulai kerja.
+            ▪ Tanggal Selesai Bekerja: Input tanggal untuk tanggal selesai kerja.
+        ◦ Gunakan st.form untuk membungkus form dan st.form_submit_button untuk menangani pengiriman form.
+          
+    4. Validasi Input
+        ◦ Cek Kelengkapan Data: Pastikan Nama dan Bagian Kerja diisi oleh pengguna.
+            ▪ Jika salah satu atau keduanya kosong, tampilkan pesan kesalahan menggunakan st.error.
+              
+    5. Proses Pembuatan PDF
+        ◦ Setelah data lengkap:
+            ▪ Ambil nilai inputan dari form: Nama, Bagian Kerja, Tanggal Mulai, dan Tanggal Selesai.
+            ▪ Format tanggal ke format yang diinginkan (misalnya: dd-mm-yyyy).
+            ▪ Panggil fungsi generate_pdf() untuk membuat PDF berdasarkan data yang diberikan.
+            ▪ Fungsi generate_pdf() mengembalikan objek PDF yang sudah terisi dengan surat Paklaring.
+
+
+
+              
+    6. Simpan dan Tampilkan Link Unduhan
+        ◦ Simpan file PDF dengan nama berdasarkan Nama Karyawan.
+            ▪ Misalnya: Nama_Karyawan_paklaring.pdf.
+        ◦ Gunakan Streamlit's st.download_button untuk menampilkan tombol unduh.
+            ▪ Tombol ini memungkinkan pengguna untuk mengunduh file PDF yang telah dibuat.
+              
+    7. Efek Setelah Unduhan
+        ◦ Setelah pengguna mengunduh file:
+            ▪ Tampilkan balon sebagai efek interaktif menggunakan st.balloons().
+            ▪ Tampilkan pesan sukses menggunakan st.success untuk memberi tahu pengguna bahwa file telah siap diunduh.
+              
+    8. Menghapus File Setelah Unduhan
+        ◦ Setelah tombol unduh diklik dan file berhasil diunduh, hapus file PDF menggunakan os.remove(output_path) untuk menjaga kebersihan server dan menghindari penumpukan file.
+          
+    9. Pengaturan Tampilan dan Font
+        ◦ (Opsional) Atur font dan tampilan aplikasi sesuai kebutuhan, meskipun pada kode yang disediakan pengaturan font belum diimplementasikan dengan benar.
+          
+              Penjelasan Alur Proses Secara Detil:
+
+    1. Inisialisasi: Pada tahap ini, aplikasi mempersiapkan semua pustaka yang dibutuhkan. Streamlit menyiapkan antarmuka pengguna dan FPDF untuk proses pembuatan PDF.
+    2. Form Input: Pengguna memasukkan informasi yang dibutuhkan untuk surat Paklaring. Setelah data dimasukkan, aplikasi akan memvalidasi kelengkapan data.
+    3. Pembuatan PDF: Setelah data valid, aplikasi akan memproses pembuatan surat Paklaring dalam format PDF. Fungsi generate_pdf akan membuat surat sesuai format yang diinginkan.
+    4. Unduh PDF: Setelah PDF selesai dibuat, pengguna dapat mengunduh surat Paklaring yang telah dibuat. Setelah unduhan selesai, aplikasi akan membersihkan file yang telah diunduh agar server tetap bersih.
+    5. Pesan Sukses: Aplikasi menampilkan pesan sukses dan efek balon untuk memberi umpan balik positif kepada pengguna setelah mereka mengunduh file.
+        ◦ 
+

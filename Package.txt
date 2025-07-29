@@ -1,0 +1,4 @@
+﻿Install Anaconda
+Install Pip
+Install Streamlit
+Install Fpdf

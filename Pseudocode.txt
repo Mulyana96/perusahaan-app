@@ -1,0 +1,19 @@
+﻿START
+
+1. Load necessary libraries (Streamlit, FPDF, OS)
+2. Define PDF class for creating PDF document with header and footer
+3. Define function generate_pdf() to create Paklaring PDF
+4. Display form with fields: Nama Karyawan, Bagian Kerja, Tanggal Mulai, Tanggal Selesai
+5. When form is submitted:
+    a. Validate if Nama and Bagian are filled
+    b. If validation fails, show error message
+6. If validation is successful:
+    a. Format the dates
+    b. Generate PDF file with the provided data using  generate_pdf()
+    c. Save PDF with the filename "Nama_Karyawan_paklaring.pdf"
+    d. Display download button for the generated PDF
+    e. Wait for the user to download the file
+7. After file is downloaded, remove the temporary PDF file
+8. End
+
+END

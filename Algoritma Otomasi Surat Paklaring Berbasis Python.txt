@@ -1,0 +1,53 @@
+﻿Algoritma 
+    1. Inisialisasi Aplikasi
+        ◦ Muat pustaka Streamlit (untuk antarmuka pengguna web) dan FPDF (untuk pembuatan PDF).
+        ◦ Tentukan lokasi gambar logo yang akan digunakan pada header PDF.
+        ◦ Setel format surat dengan gaya header dan footer yang sesuai menggunakan FPDF
+
+    2. Kelas PDF
+        ◦ Definisikan kelas PDF yang mewarisi dari FPDF untuk membuat file PDF yang dapat menampilkan logo perusahaan, 
+          judul surat, dan footer halaman.
+        ◦ Header: Menampilkan logo dan nama perusahaan di bagian atas setiap halaman PDF.
+        ◦ Footer: Menampilkan nomor halaman di bagian bawah PDF.
+
+    3. Form Input Data di Streamlit
+        ◦ Gunakan Streamlit untuk membuat form yang meminta data berikut:
+            ▪ Nama Karyawan (teks input)
+            ▪ Bagian Kerja (teks input)
+            ▪ Tanggal Mulai Bekerja (input tanggal)
+            ▪ Tanggal Selesai Bekerja (input tanggal)
+
+    4. Validasi Input
+        ◦ Setelah pengguna mengisi form, aplikasi memeriksa apakah kolom Nama Karyawan dan Bagian Kerja sudah diisi.
+        ◦ Jika ada kolom yang kosong, tampilkan pesan kesalahan menggunakan st.error.
+
+    5. Proses Pembuatan PDF
+        ◦ Jika input valid:
+            ▪ Ambil data input dari form (Nama, Bagian, Tanggal Mulai, dan Tanggal Selesai).
+            ▪ Format tanggal sesuai dengan format yang diinginkan (misalnya, dd-mm-yyyy).
+            ▪ Panggil fungsi generate_pdf() untuk menghasilkan file PDF berdasarkan data yang dimasukkan.
+            ▪ Fungsi generate_pdf() menggunakan kelas PDF untuk membuat surat pengalaman kerja yang berisi data karyawan.
+
+    6. Simpan dan Unduh PDF
+        ◦ Simpan file PDF yang dihasilkan dengan nama berdasarkan Nama Karyawan.
+        ◦ Tampilkan tombol unduh menggunakan st.download_button untuk memberikan pengguna akses untuk mengunduh surat Paklaring yang telah dibuat.
+        ◦ Setelah file diunduh, tampilkan efek balon (st.balloons()) dan pesan sukses.
+
+    7. Hapus File PDF Setelah Diunduh
+        ◦ Setelah pengguna mengunduh file PDF, hapus file PDF yang telah disimpan untuk menjaga kebersihan server menggunakan os.remove().
+
+    8. Pengaturan Tampilan (Font)
+        ◦ Tentukan pengaturan font di aplikasi Streamlit agar teks tampil sesuai yang diinginkan, meskipun kode ini belum diimplementasikan secara efektif.
+
+Visualisasi Algoritma
+    1. Input dari Pengguna
+        ◦ Masukkan data: Nama, Bagian Kerja, Tanggal Mulai, Tanggal Selesai.
+    2. Validasi Data
+        ◦ Cek apakah data sudah lengkap (Nama dan Bagian Kerja harus diisi).
+    3. Generate PDF
+        ◦ Dengan data yang valid, buat file PDF dengan surat Paklaring yang sudah diformat.
+    4. Tampilkan Link Unduhan
+        ◦ Tampilkan tombol unduh untuk mengunduh surat Paklaring yang telah dibuat.
+    5. Hapus File Setelah Unduhan
+        ◦ Hapus file PDF setelah unduhan berhasil.
+
